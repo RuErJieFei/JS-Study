@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="title">title</div>
+    <div id="content">something</div>
+    <br />
+
+    <script>
+      document.write("Hello JavaScript!");
+      document.write("<h1>Hello JavaScript!</h1>");
+
+      // 输出标题
+      document.getElementById("title").innerHTML = "欢迎来到我的主页";
+      // 输出段落
+      document.getElementById("content").innerHTML = "这是我的第一个段落。";
+
+      console.log("hello");
+      var cars = ["奔驰", "宝马", "大众"];
+      for (let key of cars) {
+        console.log(key);
+      }
+      for (let index = 0; index < cars.length; index++) {
+        const element = cars[index];
+        console.log(element);
+      }
+    </script>
+  </body>
+</html>

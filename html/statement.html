@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num = 30;
+      if (num < 20) {
+        document.write("在线学习JavaScript很简单");
+      } else {
+        document.write("我也想学习");
+      }
+      function myFunction() {
+        var x;
+        var d = new Date().getDay();
+        // 获取周几的方法
+        switch (d) {
+          case 0:
+            x = "今天是星期日";
+            break;
+
+          case 1:
+            x = "今天是星期一";
+            break;
+
+          case 2:
+            x = "今天是星期二";
+            break;
+
+          case 3:
+            x = "今天是星期三";
+            break;
+
+          case 4:
+            x = "今天是星期四";
+            break;
+
+          case 5:
+            x = "今天是星期五";
+            break;
+
+          case 6:
+            x = "今天是星期六";
+            break;
+        }
+        return x;
+      }
+      console.log(myFunction());
+
+      var cars = ["奔驰", "宝马", "大众"];
+      for (let key of cars) {
+        console.log(key);
+      }
+      for (let index = 0; index < cars.length; index++) {
+        const element = cars[index];
+        console.log(element);
+      }
+
+      var deal = 3;
+      while (deal > 0) {
+        console.log("this is dealing");
+        deal--;
+      }
+      deal = 3;
+      do {
+        console.log("this is dealing");
+        deal--;
+      } while (deal > 0);
+      var x = "";
+
+      for (i = 0; i < 10; i++) {
+        if (i == 3) {
+          break;
+        }
+        x = x + "The number is " + i + "<br>";
+      }
+      document.write(x);
+
+      var x = "";
+      for (i = 0; i <= 10; i++) {
+        if (i % 3 == 0) {
+          continue;
+        }
+        x = "数值是： " + i + "<br>";
+        document.write(x);
+      }
+    </script>
+  </body>
+</html>

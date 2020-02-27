@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = 5;
+      console.log(x == 5);
+      console.log(x == "5");
+      //类型和值均相等
+      console.log(x === 5);
+      console.log(x === "5");
+
+      console.log("***********");
+
+      //一假为假
+      console.log(4 > 1 && 10 < 15);
+      console.log(4 > 5 && 10 < 15);
+
+      //一真为真
+      console.log(4 > 1 || 10 < 15);
+      console.log(4 > 5 || 10 < 15);
+
+      console.log(1 < 18 ? "未成年人" : "成年人");
+
+      //标准杆数 par 和 挥杆次数 strokes
+      function levelOf(par, strokes) {
+        if (strokes == 1) {
+          console.log("Hole-in-one!");
+        }
+        if (strokes <= par - 2) {
+          console.log("Eagle");
+        }
+        if (strokes <= par - 1) {
+          console.log("Eagle");
+        }
+      }
+
+      var coursename = "JavaScript 微课";
+      var character = coursename[5];
+      console.log(character);
+    </script>
+  </body>
+</html>
