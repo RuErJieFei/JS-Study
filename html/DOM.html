@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #container {
+      width: 600px;
+      height: 400px;
+      background: rgb(170, 199, 170);
+      position: relative;
+    }
+    #box {
+      width: 60px;
+      height: 60px;
+      background: rgb(211, 144, 144);
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="box"></div>
+    </div>
+    <!-- <p id="demo">
+        <p>123</p>
+    </p> -->
+
+    <div id="demo">一些文本</div>
+
+    <div id="demo1">
+      <p id="p1">这是一个段落</p>
+      <p id="p2">这是另一个段落</p>
+    </div>
+    <script>
+      var t = setInterval(move, 500);
+      // 定义开始的位置
+      var pos = 0;
+      // 获取box元素
+      var box = document.getElementById("box");
+
+      //   function move() {
+      //     pos += 2;
+      //     box.style.left = pos + "px";
+      //     //px = pixels
+      //   }
+      var t = setInterval(move, 10);
+      function move() {
+        if (pos >= 540) {
+          clearInterval(t);
+        } else {
+          pos += 1;
+          box.style.left = pos + "px";
+        }
+      }
+
+      //   document.body.innerHTML = "Some text";
+
+      //   所有HTML元素都是对象，对象都有属性和方法。
+      //   document 对象具有三种方法最常用于选择HTML元素：
+
+      //通过 id 找元素
+      //   document.getElementById();
+      //通过 类 找元素
+      //   document.getElementsByClassName();
+      //通过 标签 找元素
+      //   document.getElementsByTagName();
+
+      //   var arr = document.getElementsByClassName("demo");
+      //访问第二个元素
+      //   arr[1].innerHTML = "Hi I am Peter";
+      //   var arr = document.getElementsByTagName("p");
+      //   for (var x = 0; x < arr.length; x++) {
+      //     arr[x].innerHTML = "Hi there";
+      //   }
+
+      //   var a = document.getElementById("demo");
+      //   var arr = a.childNodes;
+      //   for (var x = 0; x < arr.length; x++) {
+      //     arr[x].innerHTML = "新的文本";
+      //   }
+
+      //创建一个新的段落
+      var p = document.createElement("p");
+      var node = document.createTextNode("一些新的文本");
+      //添加文本到段落
+      p.appendChild(node);
+      var div = document.getElementById("demo");
+      //将段落添加到div中
+      div.appendChild(p);
+      div.removeChild(p);
+
+      var p = document.createElement("p");
+      var node = document.createTextNode("这是新的文本");
+      p.appendChild(node);
+
+      var parent = document.getElementById("demo1");
+      var child = document.getElementById("p1");
+      parent.replaceChild(p, child);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var person = { name: "John", age: 31, favColor: "green", height: 183 };
+      var x = person.age;
+      var y = person["age"];
+      console.log(x + y);
+      console.log(person.name.length);
+      person.name = "Jack";
+      console.log(person.name);
+      person["name"] = "Ben";
+      console.log(person.name);
+      delete person["favColor"];
+      console.log(person["favColor"]);
+
+      var message = "Hello world!";
+      var z = message.toUpperCase();
+      console.log(z);
+      var a = "age";
+      var myObj = {
+        name: "Loen",
+        age: "28",
+        eat: function() {
+          return "I'm eating";
+        }
+      };
+      // Loen
+      console.log(myObj["name"]);
+      // 可以用变量访问对象属性, 这里返回 28
+      console.log(myObj[a]);
+      // 返回 I'm eating
+      console.log(myObj["eat"]());
+
+      //构造函数
+      function person1(firstname, lastname, age, eyecolor) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+        this.eyecolor = eyecolor;
+      }
+
+      var myFather = new person1("John", "Doe", 50, "blue");
+      var myMother = new person1("Sally", "Rally", 48, "green");
+      // -> 50
+      console.log(myFather.age);
+      // -> Sally
+      console.log(myMother.firstname);
+      function person3(name, age) {
+        this.name = name;
+        this.age = age;
+        this.changeName = function(name) {
+          this.name = name;
+        };
+      }
+      var p = new person3("Loen", 28);
+      console.log(p.name);
+      p.changeName("John");
+      console.log(p.name);
+
+      //调用外部方法需要()啊
+      function person4(name, age) {
+        this.name = name;
+        this.age = age;
+        this.yearOfBirth = bornYear();
+        // 关联 bornYear 函数
+      }
+      function bornYear() {
+        return new Date().getFullYear("July 20, 69 00:20:18");
+      }
+      var p4 = new person4("Lily", 18);
+      console.log(p4);
+    </script>
+  </body>
+</html>

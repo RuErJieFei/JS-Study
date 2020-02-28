@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo">213</div>
+    <script>
+      //String
+      var str = "Hello, Nier";
+      // 把字符串转为小写
+      var a = str.toLowerCase();
+      console.log(a);
+      // 吧字符串转为大写
+      var b = str.toUpperCase();
+      console.log(b);
+      //去掉字符串两边的空白
+      var c = " Hello world ".trim();
+      console.log(c);
+      //定位
+      var e = str.indexOf("H");
+      console.log(e);
+      var f = str.indexOf("N");
+      console.log(f);
+      var g = str.replace("Hello", "hi");
+      console.log(g);
+      var h = str.replace(/Nier/g, "red");
+      console.log(h);
+      var i = str.split("", 5);
+      console.log(i);
+
+      //Window
+      var winInnerHeight = window.innerHeight; //返回窗口的文档显示区的高度。
+      console.log(winInnerHeight);
+      var winInnerWidth = window.innerWidth; //返回窗口的文档显示区的宽度。
+      console.log(winInnerWidth);
+      var winOuterWidth = window.outerWidth; // 返回窗口的外部宽度，包含工具条与滚动条。
+      console.log(winOuterWidth);
+      var winOuterHeight = window.outerHeight; // 返回窗口的外部高度，包含工具条与滚动条。
+      console.log(winOuterHeight);
+
+      var winScreenLeft = window.screenLeft; // 返回相对于屏幕窗口的x坐标
+      console.log(winScreenLeft);
+      var winScreenTop = window.screenTop; // 返回相对于屏幕窗口的y坐标
+      console.log(winScreenTop);
+
+      //alert() 就是window对象的方法, 调用window对象方法可以不需要指明window对象:
+
+      //   alert("hello world");
+      // 等价于
+      //   window.alert("hello world");
+      setTimeout(function() {
+        // alert("Hello");
+      }, 3000);
+
+      //使用 clearTimeout() 来阻止函数的执行
+      var myVar;
+      function myFunction() {
+        myVar = setTimeout(function() {
+          alert("Hello");
+        }, 3000);
+      }
+
+      function myStopFunction() {
+        clearTimeout(myVar);
+      }
+
+      //JSON
+      //数据为 键/值 对。
+      //数据由逗号分隔。
+      //大括号保存对象
+      //方括号保存数组
+      //JSON.parse() 方法用于将一个 JSON 字符串转换为对象。
+      var json = {
+        sites: [
+          { name: "baidu", url: "www.baidu.com" },
+          { name: "Google", url: "www.google.com" },
+          { name: "Taobao", url: "www.taobao.com" }
+        ]
+      };
+      var text =
+        '{"employees":[' +
+        '{"name":"baidu","site":"http://www.baidu.com" },' +
+        '{"name":"Google","site":"http://www.Google.com" },' +
+        '{"name":"Taobao","site":"http://www.taobao.com" }]}';
+      obj = JSON.parse(text);
+      document.getElementById("demo").innerHTML =
+        obj.employees[1].name + " " + obj.employees[1].site;
+
+      var obj1 = JSON.parse('{"p": 5, "s": 1.5, "t": -3}', function(k, v) {
+        if (k === "") return v; // 如果到了最顶层，则直接返回属性值，
+        return v * 2; // 否则将属性值变为原来的 2 倍。
+      });
+
+      console.log(obj1);
+      var obj2 = JSON.parse(
+        '{"1": 1, "2": 2,"3": {"4": 4, "5": {"6": 6}}}',
+        function(k, v) {
+          console.log(k); // 输出当前的属性名，从而得知遍历顺序是从内向外的， // 最后一个属性名会是个空字符串。
+          return v; // 返回原始属性值，相当于没有传递 reviver 参数。
+        }
+      );
+      //JSON.parse() 不允许用逗号作为结尾
+      //JSON.parse(text[, reviver])
+      // 以下均抛出动态错误
+      //   JSON.parse("[1, 2, 3, 4, ]");
+      //   JSON.parse('{"foo" : 1, }');
+
+      //JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符串。
+      //JSON.stringify(value[, replacer[, space]])
+      //value: 必需， 要转换的 JavaScript 值（通常为对象或数组）。
+      //replacer:可选。用于转换结果的函数或数组。
+      //如果 replacer 为函数，则 JSON.stringify 将调用该 函数，并传入每个成员的键和值。
+      //使用返回值而不是原始值。如果此函数返回 undeﬁned，则排 除成员。根对象的键是一个空字符串：""。
+      //如果 replacer 是一个数组，则仅转换该数组中具有键 值的成员。
+      //成员的转换顺序与键在数组中的顺序一样。
+      //space: 可选，文本添加缩进、空格和换行符，如果 space 是一个数字，则返回值文本在每个级别 缩进指定数目的空格，
+      //如果 space 大于 10，则文本缩进 10 个空格。space 也可以使用非数字， 如：\t。
+      var str = { name: "baidu", site: "http://www.baidu.com" };
+      str_pretty1 = JSON.stringify(str);
+      document.write("只有一个参数情况：");
+      document.write("<br>");
+      document.write("<pre>" + str_pretty1 + "</pre>");
+      document.write("<br>");
+      str_pretty2 = JSON.stringify(str, null, 4); //使用四个空格缩进
+      document.write("使用参数情况：");
+      document.write("<br>");
+      document.write("<pre>" + str_pretty2 + "</pre>"); // pre 用于格式化输出
+
+      //Math
+      document.write(Math.PI);
+
+      //   var n = prompt("请输入一个数字:", "");
+      //   var answer = Math.sqrt(n);
+      //   alert("数字" + n + " 的平方根是: " + answer);
+
+      //**Math.floor()** 向下取整。
+      //**Math.round()** 返回一个数字四舍五入后最接近的整数。
+      var f = Math.floor(12.4);
+      console.log(f);
+      var r = Math.round(12.6);
+      console.log(r);
+
+      //Date
+      function printTime() {
+        var d = new Date();
+        var hours = d.getHours();
+        var mins = d.getMinutes();
+        var secs = d.getSeconds();
+        document.body.innerHTML = hours + ":" + mins + ":" + secs;
+      }
+      setInterval(printTime(), 1000); // setInterval 第二个参数单位是 毫秒
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="doSomething()">
+    <button id="btn" onclick="show()">
+      点击我
+    </button>
+    <input type="text" id="name" onchange="change()" />
+
+    <button onclick="prev()">上一张</button>
+    <img
+      id="slider"
+      src="../image/CD90F51B-02AE-4CC4-AF1B-6568CAE98CD8_1_105_c.jpeg"
+    />
+
+    <button onclick="next()">下一张</button>
+
+    <form onsubmit="return validate()" method="post">
+      Number: <input type="text" name="num1" id="num1" /> <br />
+      Repeat: <input type="text" name="num2" id="num2" /> <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function show() {
+        console.log("你好,我在这里!");
+      }
+      window.onload = function() {
+        console.log("页面加载");
+      };
+      //onchange 事件主要用于文本框。当文本框内的文本发生变化并且焦点从元素中丢失时，调用事件处理 程序。
+      function change() {
+        var x = document.getElementById("name");
+        x.value = x.value.toUpperCase();
+        // 转成大写
+      }
+      var btn = document.getElementById("btn");
+      btn.addEventListener("mouseover", myFunction);
+      function myFunction() {
+        alert("Hello JavaScript！");
+      }
+      btn.removeEventListener("mouseover", myFunction);
+
+      var images = [
+        "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/cover/11.jpg",
+        "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/cover/12.jpg",
+        "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/cover/13.jpg",
+        "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/cover/14.jpg",
+        "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/cover/15.jpg"
+      ];
+      var num = 0;
+
+      function next() {
+        var slider = document.getElementById("slider");
+        num++;
+        if (num >= images.length) {
+          num = 0;
+        }
+        slider.src = images[num];
+      }
+
+      function prev() {
+        var slider = document.getElementById("slider");
+        num--;
+        if (num < 0) {
+          num = images.length - 1;
+        }
+        slider.src = images[num];
+      }
+
+      function validate() {
+        var n1 = document.getElementById("num1");
+        var n2 = document.getElementById("num2");
+        if (n1.value != "" && n2.value != "") {
+          if (n1.value == n2.value) {
+            return true;
+          }
+        }
+        alert("输入两个值不相等,请重新输入!");
+        return false;
+      }
+    </script>
+  </body>
+</html>

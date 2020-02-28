@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function myFunction(a, b) {
+        return a * b;
+      }
+      var res = myFunction(2, 3);
+      // 函数调用, 返回 6
+      console.log(res);
+      function myFunction1() {
+        // alert("调用一个函数!");
+      }
+      myFunction1();
+      function sum() {
+        return arguments[0] + arguments[1];
+      }
+      //以上 sum 函数就是使用 arguments 获取隐藏参数, 进行操作
+      console.log(sum(1, 2));
+      function sayHello(name, age) {
+        console.log(name + "年龄是:" + age + "岁");
+      }
+      //输出: John年龄是:20岁
+      sayHello("John", 20);
+      //输出: 20年龄是:John岁
+      sayHello(20, "John");
+      //输出: John年龄是:undefined岁
+      sayHello("John");
+
+      var carName = "大众";
+      function myFunction2() {
+        // carName 变量为局部变量
+        var carName = "大众";
+        console.log(carName);
+      }
+      myFunction2();
+      console.log(carName);
+
+      var user = prompt("请输入你的名字:");
+      console.log(user);
+
+      var result = confirm("你确定要离开这个页面?");
+      if (result == true) {
+        alert("感谢你的光临!");
+      } else {
+        alert("感谢你继续使用我们的服务!");
+      }
+      
+    </script>
+  </body>
+</html>
